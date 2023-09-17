@@ -72,7 +72,7 @@ const Footer = () => {
                     <a href="http://nhanh.vn/tuyen-dung-nc4.html">Tuyển dụng</a>
                   </p>
                   <p>
-                    <a href="http://nhanh.vn/gioi-thieu">Giới thiệu</a>
+                    <a href="/about-us">About Us</a>
                   </p>
                 </div>
               </div>

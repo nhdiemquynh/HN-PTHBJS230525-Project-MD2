@@ -2,60 +2,11 @@ import "../../styles/css.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { dataCarousel, dataNavbar } from "../data";
+import { dataNavbar } from "../data";
+import Link from "antd/es/typography/Link";
 library.add(fas);
 
-const Carousel = () => {
-  return (
-    <section className="carousel_top">
-      <div
-        id="carouselExampleIndicators"
-        className="carousel slide"
-        data-bs-ride="true"
-      >
-        <div className="carousel-inner">
-          {dataCarousel.map((item, index) => (
-            <div
-              className={`carousel-item ${index === 0 ? "active" : ""}`}
-              key={index}
-            >
-              <img
-                src={item.image}
-                className="d-block w-100"
-                height="600px"
-                alt=""
-              />
-            </div>
-          ))}
-        </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleIndicators"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
-  );
-};
+
 
 const Home = () => {
   return (
@@ -77,7 +28,7 @@ const Home = () => {
             </div>
             <div className="col-3 icon_cart">
               <span>
-                <FontAwesomeIcon icon="user" />
+                <Link href="/account/login"><FontAwesomeIcon icon="user" /></Link>
               </span>
               <span>
                 <FontAwesomeIcon icon="cart-shopping" />
@@ -111,7 +62,7 @@ const Home = () => {
                     {item.dropdown ? (
                       <a
                         className="nav-link dropdown-toggle"
-                        href="#"
+                        href={item?.href}
                         id={`navbarDropdown${index}`}
                         role="button"
                         data-bs-toggle="dropdown"
@@ -120,7 +71,7 @@ const Home = () => {
                         {item.name}
                       </a>
                     ) : (
-                      <a className="nav-link" href="#">
+                      <a className="nav-link" href={item?.href}>
                         {item.name}
                       </a>
                     )}
@@ -132,7 +83,7 @@ const Home = () => {
                       >
                         {item.dropdown.map((subItem, subIndex) => (
                           <li key={subIndex}>
-                            <a className="dropdown-item" href="#">
+                            <a className="dropdown-item" href={item?.href}>
                               {subItem.name}
                             </a>
                           </li>
@@ -162,7 +113,7 @@ const Home = () => {
         </div>
       </div>
 
-      <Carousel />
+
     </>
   );
 };
