@@ -1,103 +1,202 @@
 const Footer = () => {
   return (
     <>
-      <footer>
-        <div className="top-footer py-4">
-          <div className="container-pre container container_layout">
-            <div className="row">
-              <div className="col-12 col-sm-6 d-flex align-items-center">
-                <h4 className="font-weight-bold text-uppercase m-sm-0">
-                  Đăng kí nhận ưu đãi từ Sneakerhome
-                </h4>
-              </div>
-              <div className="col-12 col-sm-6 d-flex align-items-center">
-                <input
-                  id="contactFormEmail"
-                  type="email"
-                  name="contact[email]"
-                  className=""
-                  placeholder="Your Email(required)"
-                  required=""
-                />
-                <input
-                  type="button"
-                  className="text-uppercase font-weight-bold btn-dk"
-                  value="signup"
-                />
-              </div>
+      <section className="section_subscribe">
+        <div className="container-fluid">
+          <div className="col-md-6 col-sm-6 col-xs-12">
+            <h4 className="title">
+              Subscribe to us!
+            </h4>
+            <p>Sign up to receive LIBÉ’s new arrival <br />
+              updates, sales, exclusive content, events and more!
+            </p>
+          </div>
+          <div className="col-md-6 col-sm-6 col-xs-12">
+            <div className="form_newsletter">
+              <form accept-charset='UTF-8' action='/'
+                className='contact-form' method='post'>
+                <input name='form_type' type='hidden' value='customer' />
+                <input name='utf8' type='hidden' value='✓' />
+
+                <div className="input-group">
+                  <input type="hidden" id="contact_tags" name="contact[tags]"
+                    value="khách hàng tiềm năng, bản tin" />
+                  <input required type="email" value="" placeholder="Your email" name="contact[email]"
+                    aria-label="Email Address" />
+                  <button type="submit" className="">Submit</button>
+                </div>
+
+                <input id='7909e61f0e7f418884dc6f6dcba4ad4c' name='g-recaptcha-response' type='hidden' />
+              </form>
             </div>
           </div>
         </div>
-        <div className="content-footer tp_footer">
-          <div className="container-pre">
+      </section>
+
+      <footer className="footer">
+        <div className="main-footer" id="fter-content">
+          <div className="container-fluid">
             <div className="row">
-              <div className="col-md-3 footer-col d-none d-md-block logo-footer text-center font-weight-bold text-uppercase position-relative title beforPre">
-                <a href="javascript:void(0);" className="d-inline-block">
-                  <img
-                    className="lazyload"
-                    data-sizes="auto"
-                    src="https://pos.nvncdn.net/eb9ddb-116318/store/20220301_M6gPcIeoQ8cwvJrojaQ7a688.png"
-                    data-src="https://pos.nvncdn.net/eb9ddb-116318/bn/20220324_e7lyZhiE74Tbp8i0K393FsLq.png"
-                    alt="5"
-                  />
+              <div className="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div className="footer-col footer-block">
+                  <h4 className="footer-title">
+                    About us
+                  </h4>
+                  <div className="footer-content toggle-footer">
+                    <ul>
+
+                      <li className="item">
+                        <a href="/news" title="Our Story">Our Story</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/news" title="LIBÉ Stores">LIBÉ Stores</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/news" title="Join LIBÉ Team">Join LIBÉ Team</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div className="footer-col footer-block">
+                  <h4 className="footer-title">
+                    Help & Information
+                  </h4>
+                  <div className="footer-content toggle-footer">
+                    <ul>
+                      <li className="item">
+                        <a href="/"
+                          title="LIBÉ GIRLS CLUB REWARD 2023">LIBÉ GIRLS CLUB REWARD 2023</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/news" title="LIBÉcommunity">LIBÉcommunity</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/news"
+                          title="Exchange & Return Policy">Exchange & Return Policy</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/news" title="How To Order">How To Order</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/" title="Size Guide">Size Guide</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/" title="Shipping">Shipping</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/" title="Payment Method">Payment
+                          Method</a>
+                      </li>
+
+                      <li className="item">
+                        <a href="/" title="Privacy Policy">Privacy
+                          Policy</a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div className="footer-col footer-block">
+                  <h4 className="footer-title">
+                    Customer Service
+                  </h4>
+                  <div className="footer-content toggle-footer">
+                    <ul>
+                      <li className="item">
+                      </li>
+                      <li className="item">
+                        <a href="tel:(+84) 909 408 169" title="">(+84) 909 408 169</a>
+                      </li>
+                      <li className="item">
+                        <a href="mailto:support@libe.clothing" title="">support@libe.clothing</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="social-list2 hidden-xs">
+                    <a href="/" className="noeall">
+                      <img src={"../../styles/assets/facee9c9.png"} />
+                    </a>
+
+                    <a href="/" className="">
+                      <img src={"../../styles/assets/instae9c9.png"} />
+                    </a>
+
+                    <a href="/" className="fa fa">
+                      <img src={"../../styles/assets/maille9c9.png"} />
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+
+              <div className="col-xs-12 col-sm-6 col-md-3 col-lg">
+                <div className="footer-col footer-content1">
+                  <h4 className="footer-title">
+                    &copy; LIBÉ
+                  </h4>
+                  <div className="footer-content">
+                    GRMNT Limited Company Business Registration No. 0315840235 issued on 09/08/2019 by
+                    department of Planning and Investment HCMC.
+                    <br />
+                    <div className="logo-bct">
+                      <a href="/" target="_blank">
+                        <img alt='' title='' src={"../../styles/assets/dathongbao111e9c9.png"} width="150" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bottom-footer text-center">
+            <div className="container-fluid">
+
+              <div className="social-list2 hidden-lg hidden-md hidden-sm" style={{marginBottom: "20px"}}>
+                <a href="/" className="noeall">
+                  <img src={"../../styles/assets/facee9c9.png"} />
+                </a>
+
+                <a href="/" className="">
+                  <img src={"../../styles/assets/instae9c9.png"} />
+                </a>
+
+                <a href="/" className="fa fa">
+                  <img src={"../../styles/assets/maille9c9.png"} />
                 </a>
               </div>
-              <div className="col-md-3 col-6 footer-col font-weight-bold text-uppercase position-relative title beforPre">
-                <h5 className="font-weight-bold text-uppercase position-relative title beforPre">
-                  thông tin liên hệ
-                </h5>
-                <div className="footer-col__content">
-                  <p>Địa chỉ: 102 Thái Thịnh, Đống Đa, Hà Nội</p>
-                  <p>Email: contact@nhanh.vn</p>
-                  <p>Hotline: 1900.2818</p>
-                </div>
-              </div>
-              <div className="col-md-2 col-6 footer-col font-weight-bold text-uppercase position-relative title beforPre">
-                <h5 className="font-weight-bold text-uppercase position-relative title beforPre">
-                  chính sách
-                </h5>
-                <div className="footer-col__content">
-                  <p>
-                    <a href="/tra-cuu-don-hang/">Tra cứu đơn hàng</a>
-                  </p>
-                  <p>Hotline hỗ trợ đơn hàng: 1900.2818</p>
-                </div>
-              </div>
-              <div className="col-md-2 col-6 footer-col font-weight-bold text-uppercase position-relative title beforPre">
-                <h5 className="font-weight-bold text-uppercase position-relative title beforPre">
-                  hỗ trợ
-                </h5>
-                <div className="footer-col__content">
-                  <p>
-                    <a href="http://nhanh.vn/tuyen-dung-nc4.html">Tuyển dụng</a>
-                  </p>
-                  <p>
-                    <a href="/about-us">About Us</a>
-                  </p>
-                </div>
-              </div>
-              <div className="col-md-2 col-6 footer-col font-weight-bold text-uppercase position-relative title beforPre">
-                <h5 className="font-weight-bold text-uppercase position-relative title beforPre">
-                  mạng xã hội
-                </h5>
-                <div className="footer-col__content">
-                  <p>
-                    <a href="http://www.facebook.com/nhanh.vn/">Facebook</a>
-                  </p>
-                  <p>
-                    <a href="http://www.instagram.com/nhanh_vn/">Instargram </a>
-                  </p>
-                  <p>
-                    <a href="http://www.youtube.com/channel/UCygUZCwRtm9mqcijF9phxkQ">
-                      Youtube
-                    </a>
-                  </p>
-                </div>
-              </div>
+
+              <p>Copyright &copy; 2023 LIBÉ</p>
+
             </div>
           </div>
         </div>
       </footer>
+
+      <div className="back-to-top hidden">
+        <a href="javascript:void(0);">
+          <div className="btt-back">
+            <span className="btt-label-back">back to top</span>
+            <span className="btt-icon-back"><i className="fa fa-long-arrow-up"></i></span>
+          </div>
+        </a>
+      </div>
     </>
   );
 };

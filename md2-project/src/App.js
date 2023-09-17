@@ -13,6 +13,10 @@ import ProductDetail from "./components/products/productDetail";
 import NotFound404 from "./components/notFound404";
 import List from "./components/news/list";
 import AboutUs from "./components/aboutUs";
+import Shop from "./components/products/shop";
+import Cart from "./components/cart/cart";
+import DetailBlog from "./components/news/detail";
+import Search from "./components/search";
 
 function App() {
   return (
@@ -23,11 +27,17 @@ function App() {
           <Route path="/" element={<Homepage></Homepage>}></Route>
           <Route path="/account/login" element={<NormalLoginForm></NormalLoginForm>}></Route>
           <Route path="/account/register" element={<RegistrationForm></RegistrationForm>}></Route>
-          <Route path="/category" element={<Category></Category>}></Route>
+          <Route path="/category/:categoryId" element={<Category></Category>}></Route>
           <Route path="/products/:productId" element={<ProductDetail></ProductDetail>}></Route>
-          <Route path="/*" element={<NotFound404></NotFound404>}></Route>
           <Route path="/news" element={<List></List>}></Route>
+          <Route path="/news/:newid" element={<DetailBlog></DetailBlog>}></Route>
           <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+          <Route path="/shop" element={<Shop></Shop>}></Route>
+          <Route path="/cart" element={<Cart></Cart>}></Route>
+          <Route path="/checkout" element={<Cart></Cart>}></Route>
+          <Route path="/search" element={<Search></Search>}></Route>
+
+          <Route path="/*" element={<NotFound404></NotFound404>}></Route>
         </Routes>
       </Router>
       <Footer></Footer>

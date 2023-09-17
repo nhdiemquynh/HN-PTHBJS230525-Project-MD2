@@ -1,107 +1,294 @@
-import { dataProduct } from "../data";
-import Carousel from "./slider";
+import { Carousel } from "antd";
+import { getListProducts, getCategory } from "../data";
+import { useEffect, useState } from "react";
 
 const Homepage = () => {
+  const [dataProduct, setDataProduct] =  useState([]);
+  const [page, setPage] = useState(1);
+  const [numberPage, setNumberPage] = useState(10);
+  const [categories, setCategories] = useState([]);
+
+  const getProucts = async (page, numberPage) => {
+    const result = await getListProducts(page, numberPage);
+    setDataProduct(result);
+  }
+
+  const getCategories = async () => {
+    const result = await getCategory({});
+    setCategories(result);
+  }
+
+  useEffect(() => {
+    getProucts(page, numberPage);
+  }, [page, numberPage]);
+
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const props = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: true,
+    marginXXS: 4
+  };
+
 
   return (
     <>
-    {/* <Carousel />
-      <div className="container container_layout">
-        <div class="title-container">
-          <div class="title-line"></div>
-          <p class="name-title">TIN TỨC</p>
-          <div class="title-line"></div>
-        </div>
+    <div>
+      <main className=" main-index">
+        <section id="catindexnew">
+          <div className="">
+            <div className="flexnew">
+              <div>
+                <img src={"../../styles/assets/homepage-img1e9c9.jpg"} alt=""></img>
+                <div className="shopinfo">
+                  <a href="/shop">SHOP NOW</a>
+                </div>
+              </div>
 
-        <div className="row bannerNews-home">
-          <div className="col-3">
-            <div className="bannerNews-home__mid-content position-relative" id="image_hover">
-              <a
-                href="javascript:void(0);"
-                className="d-block position-absolute"
-              >
-                <img
-                  src="https://pos.nvncdn.net/eb9ddb-116318/bn/20220324_VBDHBJlITvvfnLSDA82zbAfd.png"
-                  alt="Sale"
-                />
-              </a>
-              <a
-                href="javascript:void(0);"
-                className="text-center bannerNews-home__mid-name d-block position-absolute text-uppercase font-weight-bold d-inline-block"
-              >
-                Sale
-              </a>
-            </div>
-          </div>
-          <div className="col-6 bannerNews-home__mid">
-            <div className="bannerNews-home__mid-content position-relative" id="image_hover">
-              <a href="https://nhanh.vn/" className="d-block position-absolute">
-                <img
-                  src="https://pos.nvncdn.net/eb9ddb-116318/bn/20220324_mcaT3cqwUAgK67DDOHbpAqox.png"
-                  alt="About us"
-                />
-              </a>
-              <a
-                href="https://nhanh.vn/"
-                className="text-center bannerNews-home__mid-name d-block position-absolute text-uppercase font-weight-bold d-inline-block"
-              >
-                About us
-              </a>
-            </div>
-          </div>
-          <div className="col-3">
-            <div className="bannerNews-home__mid-content position-relative" id="image_hover">
-              <a
-                href="/accessories-pc570536.html"
-                className="d-block position-absolute"
-              >
-                <img
-                  src="https://pos.nvncdn.net/eb9ddb-116318/bn/20220324_VBDHBJlITvvfnLSDA82zbAfd.png"
-                  alt="Super Sale"
-                />
-              </a>
-              <a
-                href="/accessories-pc570536.html"
-                className="text-center bannerNews-home__mid-name d-block position-absolute text-uppercase font-weight-bold d-inline-block"
-              >
-                Super Sale
-              </a>
-            </div>
-          </div>
-        </div>
+              <div>
+                <div className="flexsmall">
+                  <div>
+                    <img src={"../../styles/assets/homepage-img2e9c9.jpg"} alt=""></img>
+                    <div className="shopinfo">
+                      <a href="/category/1">LIBÉGOODS</a>
+                    </div>
+                  </div>
 
-        <div class="title-container">
-          <div class="title-line"></div>
-          <p class="name-title">NEW ARRIVALS</p>
-          <div class="title-line"></div>
-        </div>
+                  <div>
+                    <img src={"../../styles/assets/homepage-img3e9c9.jpg"} alt=""></img>
+                    <div className="shopinfo">
+                      <a href="/category/2">ACCESSORIES</a>
+                    </div>
+                  </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          {dataProduct.map((item, index) => (
-            <div class="col-md-3" key={index}>
-              <div class="card card_product">
-                <img src={item.image} class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h6 class="card-title name_product">{item.name}</h6>
-                  <h6 class="card-title name_product">{item.price}</h6>
+                  <div>
+                      <img src={"../../styles/assets/homepage-img4e9c9.jpg"} alt=""></img>
+                    <div className="shopinfo">
+                      <a href="/category/3">STORES</a>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
-          ))}
+          </div>
+        </section>
+
+        <section className="home_list_story">
+          <div className="container-fluid wrapper_story">
+            <div className="row">
+              <div className="col-xs-12 wrapper_text">
+                <div className="mz-block-float mz-home-marquee-wrapper">
+                  <a href="/category/1">
+                    <div className="mz-home-marquee blackColor">
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right"></i>
+                      <span>NEW ARRIVALS</span>
+                      <i className="fa fa-arrow-right font-weight-bold"></i><i
+                        className="fa fa-arrow-right font-weight-bold"></i>
+                      <span className="font-weight-bold">NEW ARRIVALS</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <div id="home-slider" className="carousel slide" data-bs-ride="true">
+          <div id="homepage_slider" className="carousel-inner">
+            <div className="item carousel-item active">
+              <a href="#">
+                <img title="new arrivals season " alt="new arrivals season " src={"../../styles/assets/slideshow_1e9c9.jpg"}></img>
+              </a>
+            </div>
+
+            <div className="item carousel-item">
+              <a href="#">
+                <img title="new arrivals summer season " alt="new arrivals summer season " src={"../../styles/assets/slideshow_2e9c9.jpg"}></img>
+              </a>
+            </div>
+
+            <div className="item carousel-item">
+              <a href="#">
+                <img title="new look book for summer " alt="new look book for summer " src={"../../styles/assets/slideshow_3e9c9.jpg"}></img>
+              </a>
+            </div>
+
+            <div className="item carousel-item">
+              <a href="#">
+                <img title="new arrivals" alt="new arrivals" src={"../../styles/assets/slideshow_4e9c9.jpg"}></img>
+              </a>
+            </div>
+
+          </div>
         </div>
 
-        <div className="button_seeall">
-          <button type="button" class="btn btn-outline-secondary">
-            Xem tất cả
-          </button>
-        </div>
-        
-      </div> */}
+        <section className="home_list_story">
+          <div className="container-fluid wrapper_story">
+            <div className="row ">
+              <div className="col-sm-12 col-xs-12 item-1 flex-item">
+                <div className="image">
+                  <img className="img-normal" src={"../../styles/assets/home_list_story_img_1e9c9.jpg"}></img>
+                  <img className="img-hover" src={"../../styles/assets/home_list_story_img_1_hovere9c9.jpg"}></img>
+                </div>
+                <div className="content text-center">
+                  <div className="title">
+                    <h5>
+                      LIBÉRATION GENERATION - LỐI SỐNG SÁNG TẠO ĐẦY T9Ự DO CỦA GEN Z
+                    </h5>
+                    <p className="libety">#LIBE-3min</p>
+                  </div>
+                  <div className="btn-action">
+                    <a
+                      href="/news/3">View
+                      story</a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-sm-12 col-xs-12 item-2 flex-item">
+                <div className="content text-center">
+                  <div className="title">
+                    <h5>
+                      SUMMER SOUVENIRS - NHỮNG KÝ ỨC NGÀY HÈ
+                    </h5>
+                    <p className="libety">#LIBE-3min</p>
+                  </div>
+                  <div className="btn-action">
+                    <a href="/news/3">View
+                      story</a>
+                  </div>
+                </div>
+                <div className="image">
+                  <img className="img-normal" src={"../../styles/assets/home_list_story_img_2e9c9.jpg"}></img>
+                  <img className="img-hover" src={"../../styles/assets/home_list_story_img_2_hovere9c9.jpg"}></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-
-
-
-      
+        <section className="section section-collection">
+          <div className="wrapper-heading-home text-center">
+            <div className="container-fluid">
+              <div className="site-animation">
+                <h2>#LIBEONME</h2>
+              </div>
+              <div className="content-sectionbanner">
+                <span>
+                  We love seeing ALL of you beautiful, unique people. Keep sharing your amazing selves,
+                  with @libeworkshop and hashtag #LIBEonme!
+                </span>
+              </div>
+            </div>
+          </div>
+          <div className="wrapper-collection-1">
+            <div className="container-fluid carousel slide">
+              <div className="clearfix content-product-list carousel-inner" id="fifth-banner-slide">
+                <Carousel {...props}>
+                  {dataProduct?.length > 0 ? dataProduct.map((product) => <>
+                    <div className="animation-tran carousel-item active" style={{padding: '0px 5px'}}>
+                    <div className="product-block product-resize site-animation" data-anmation="1">
+                      <div className="product-img">
+                        <a href={"/products/" + product?.id}
+                          title="Group 1" className="image-resize">
+                          <img className="img-loop" alt="Group 1" src={product?.image} />
+                          <div className="product-detail clearfix">
+                            <div className="box-pro-detail">
+                              <h6 className="pro-name">
+                                {product.name}
+                              </h6>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  </>) : ''}
+                </Carousel>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
     </>
   );
 };
